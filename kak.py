@@ -97,7 +97,7 @@ def reverseProcess(processed_image, arr_pres, original_img, doc_contour):
     # Reverse perspective transformation
     result = np.array(original_img)
     arr_pres_inv = np.linalg.inv(arr_pres)
-    h, w = img.shape[:2]
+    h, w = result.shape[:2]
     warped = cv2.warpPerspective(processed_image, arr_pres_inv, (w, h))
     warped = cv2.cvtColor(warped, cv2.COLOR_RGB2BGR)
     result = cv2.cvtColor(result, cv2.COLOR_RGB2BGR)
@@ -171,7 +171,6 @@ def getDigit(image, model):
 
         return l, r
 
-
 def getBoard(cells):
     # Generate board from cells
     model = MNIST()
@@ -219,25 +218,22 @@ def find_empty_location(board, pos):
 # Find constraints (sum hints) for a given cell
 def find_cons(board, row, col):
     r = row
-    
     # Find vertical constraint
     while r >= 0:
-        if board[r][c][0] != 0:
-            v = (r, c)
+        if board[r][col][0] != 0:
+            v = (r, col)
             break
         r -= 1
 
     c = col
-
     # Find horizontal constraint
     while c >= 0:
-        if board[r][c][0] != 0:
-            h = (r, c)
+        if board[row][c][0] != 0:
+            h = (row, c)
             break
         c -= 1
     
     return v, h
-
 
 # Check if placing a number is valid
 def is_valid(board, row, col, num):
