@@ -52,7 +52,7 @@ This project is a Kakuro puzzle solver that uses image processing, deep learning
 2. Run the script to solve the puzzle:
 
    ```bash
-   python kakuro_solver.py
+   python kak.py
 
 3. The solved puzzle will be displayed, and the solution will be overlaid on the original image.
 
