@@ -13,47 +13,25 @@ This project is a Kakuro puzzle solver that uses image processing, deep learning
 
 ---
 
-## Code Structure
+## Files and Their Purpose
 
-### Image Processing
-- **Loading and Preprocessing**:
-  - The input image is loaded and converted to grayscale.
-  - Edges are detected using the Canny edge detector.
-  - Contours are extracted to identify the Kakuro grid.
+- **`main.py`**: The entry point of the application. It imports functions from `imageProcessing.py` and `csp.py` to process an image of a Kakuro puzzle, solve it , and show the solved puzzle.
 
-- **Perspective Transformation**:
-  - The grid is transformed using perspective transformation.
-  - The grid is divided into cells for further processing.
+- **`imageProcessing.py`**: Contains functions for processing images of Kakuro puzzles such as functions to processes the input image to extract the puzzle grid, or extracts the board configuration from the processed image.
 
-### Deep Learning
-- **MNIST Model**:
-  - A CNN model is trained on the MNIST dataset to recognize digits.
-  - The model is used to detect and classify digits in the puzzle constraints.
+- **`csp.py`**: Implements the constraint satisfaction problem (CSP) algorithm to solve the Kakuro puzzle.
 
-### Puzzle Solving
-- **Constraint Extraction**:
-  - Constraints (sum hints) are extracted from the grid using the detected digits.
-  - Diagonal lines are detected to identify constraint cells.
-
-- **Backtracking Algorithm**:
-  - A backtracking algorithm with constraint propagation is used to solve the Kakuro puzzle.
-  - The algorithm ensures that the solution satisfies all row and column constraints.
-
-### Visualization
-- **Solution Overlay**:
-  - The solved puzzle is overlaid on the original image using reverse perspective transformation.
+- **`model.py`**: Uses a Convolutional Neural Network (CNN) trained on the MNIST dataset to recognize digits in the puzzle.
 
 ---
 
-## Usage
+## How to Run
 
-1. Place the Kakuro puzzle image (e.g., `s1.png`) in the project directory.
-
-2. Run the script to solve the puzzle:
-
+1. Clone the repository:
    ```bash
-   python kak.py
+   git clone https://github.com/your-username/kakuro-solver.git
+   cd kakuro-solver
+2. Run the solver:
+   ```bash
+   python3 main.py
 
-3. The solved puzzle will be displayed, and the solution will be overlaid on the original image.
-
----
