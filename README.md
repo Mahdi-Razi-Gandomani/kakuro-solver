@@ -57,11 +57,3 @@ This project is a Kakuro puzzle solver that uses image processing, deep learning
 3. The solved puzzle will be displayed, and the solution will be overlaid on the original image.
 
 ---
-
-## Example Output
-
-After running the script, the solved puzzle will be displayed with the solution overlaid on the original image. For example:
-
-| **Input Image** | **Output Image** |
-|-----------------|------------------|
-| ![Input Puzzle](input_puzzle.png) | ![Solved Puzzle](solved_puzzle.png) |
