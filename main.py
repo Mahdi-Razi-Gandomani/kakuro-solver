@@ -8,7 +8,7 @@ SIZE = 7
 
 if __name__ == '__main__':
     # Load the puzzle image
-    image_path = 's1.png'
+    image_path = 'images/input.png'
     img = Image.open(image_path)
     # Detect puzzle boundaries, correct perspective, and extract individual cells
     puzzle_image, cells, arr_pres, cont = processImage(img, SIZE)
