@@ -1,27 +1,40 @@
-# Kakuro Puzzle Solver
+# Kakuro Solver with Image Processing and MNIST Digit Recognition
 
-This project is a Kakuro puzzle solver that uses image processing, deep learning, and constraint satisfaction algorithms to solve Kakuro puzzles from images. The system processes an image of a Kakuro puzzle, extracts the grid and constraints, solves the puzzle, and overlays the solution on the original image.
+This project provides a fully automated solution to Kakuro puzzles using computer vision, deep learning, and constraint satisfaction problem (CSP) techniques. Given an image of a Kakuro puzzle, the system detects the grid, extracts numbers, solves the puzzle, and overlays the solution back onto the original image.
 
 ---
 
 ## Features
 
-- **Image Processing**: Extracts the Kakuro grid and constraints from an image.
-- **Deep Learning**: Uses a Convolutional Neural Network (CNN) trained on the MNIST dataset to recognize digits in the puzzle.
-- **Constraint Satisfaction**: Solves the Kakuro puzzle using a backtracking algorithm with constraint propagation.
-- **Visualization**: Overlays the solved puzzle on the original image for visualization.
+- **Automatic Kakuro Grid Detection**  
+  Detects the puzzle boundaries and corrects the perspective using OpenCV.
+
+- **Cell Segmentation**  
+  Divides the puzzle into individual cells for processing.
+
+- **Digit Recognition using MNIST CNN**  
+  Recognizes digits in constraint cells (sum hints) using a convolutional neural network trained on MNIST.
+
+- **Kakuro Solver**  
+  Solves the puzzle using a backtracking algorithm with sum constraints.
+
+- **Solution Overlay**  
+  Projects the solved numbers back onto the original puzzle image, maintaining perspective and formatting.
 
 ---
 
-## Files and Their Purpose
+## Project Structure
 
-- **`main.py`**: The entry point of the application. It imports functions from `imageProcessing.py` and `csp.py` to process an image of a Kakuro puzzle, solve it , and show the solved puzzle.
-
-- **`imageProcessing.py`**: Contains functions for processing images of Kakuro puzzles such as functions to processes the input image to extract the puzzle grid, or extracts the board configuration from the processed image.
-
-- **`csp.py`**: Implements the constraint satisfaction problem (CSP) algorithm to solve the Kakuro puzzle.
-
-- **`model.py`**: Uses a Convolutional Neural Network (CNN) trained on the MNIST dataset to recognize digits in the puzzle.
+```
+project/
+│
+├─ main.py                 # Entry point for solving the puzzle
+├─ csp.py                  # Kakuro solver functions (backtracking & constraints)
+├─ imageProcessing.py      # Functions for image preprocessing, cell extraction, digit detection
+├─ model.py                # MNIST CNN model for digit recognition
+├─ input.png                  # Sample puzzle image
+└─ README.md
+```
 
 ---
 
@@ -31,7 +44,48 @@ This project is a Kakuro puzzle solver that uses image processing, deep learning
    ```bash
    git clone https://github.com/Mahdi-Razi-Gandomani/kakuro-solver.git
    cd kakuro-solver
-2. Run the solver:
+2. Place your own Kakuro puzzle image in the project folder (default: `input.png`).
+
+3. Adjsut the puzzle size via the `SIZE` variable in `main.py`.
+
+4. Run the solver:
    ```bash
    python3 main.py
 
+---
+
+## How it Works
+
+1. **Image Processing**
+   - Converts image to grayscale and applies Gaussian blur.
+   - Detects contours and approximates the puzzle boundary.
+   - Applies perspective transform to straighten the puzzle.
+   - Divides the puzzle into individual cells.
+
+2. **Digit Detection**
+   - Detects diagonal lines in constraint cells.
+   - Filters and preprocesses potential digits.
+   - Uses MNIST CNN to recognize digits.
+   - Separates vertical and horizontal sum hints.
+
+3. **Puzzle Solving**
+   - Represents the board as a 2D array of tuples `(vertical_sum, horizontal_sum)` for constraints, and `(0, 0)` for empty cells.
+   - Uses backtracking to fill numbers while respecting sum constraints and uniqueness in rows/columns.
+
+4. **Solution Overlay**
+   - Updates the processed puzzle image with solved numbers.
+   - Applies inverse perspective transform to overlay solution onto the original image.
+
+---
+
+## Example
+
+**Original Puzzle:**
+
+![Original Puzzle](input.png)
+
+**Solved Puzzle:**
+
+![Solved Puzzle](solved_output.png)
+
+---
