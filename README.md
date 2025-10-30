@@ -84,3 +84,8 @@ project/
    - Applies inverse perspective transform to overlay solution onto the original image.
 
 ---
+
+## References
+
+Bagadia, S., & Desai, N. End-to-end system for recognizing and solving Kakuro puzzles, Stanford University.
+
