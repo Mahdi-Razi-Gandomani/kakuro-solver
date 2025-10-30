@@ -65,7 +65,7 @@ project/
 2. **Digit Detection**
    - Detects diagonal lines in constraint cells.
    - Filters and preprocesses potential digits.
-   - Uses MNIST CNN to recognize digits. Trained CNN model is saved as `mnist_cnn_model.h5` instead of retraining.
+   - Uses MNIST CNN to recognize digits. Trained CNN model is saved as `mnist_cnn_model.h5` to use instead of retraining.
    - Separates vertical and horizontal sum hints.
 
 3. **Puzzle Solving**
