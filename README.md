@@ -4,6 +4,13 @@ This project provides a fully automated solution to Kakuro puzzles using compute
 
 ---
 
+## Demo
+| Original Puzzle | Solved Puzzle |
+|-----------------|---------------|
+| ![Original Puzzle](images/input.png) | ![Solved Puzzle](images/solved_output.png) |
+
+---
+
 ## Features
 
 - **Automatic Kakuro Grid Detection**  
@@ -75,13 +82,5 @@ project/
 4. **Solution Overlay**
    - Updates the processed puzzle image with solved numbers.
    - Applies inverse perspective transform to overlay solution onto the original image.
-
----
-
-## Example
-
-| Original Puzzle | Solved Puzzle |
-|-----------------|---------------|
-| ![Original Puzzle](images/input.png) | ![Solved Puzzle](images/solved_output.png) |
 
 ---
