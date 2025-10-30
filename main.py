@@ -20,10 +20,8 @@ if __name__ == '__main__':
         page = setBoard(puzzle_image, board, SIZE)
         # Reverse the perspective transformation to overlay the solution on the original image
         restored_image = reverseProcess(page, arr_pres, img, cont)
-        # Display the solved puzzle
-        plt.imshow(restored_image, cmap='gray')
-        plt.axis('off')
-        plt.show()
+        # Save the solved puzzle
+        cv2.imwrite('images/solved_output.png', cv2.cvtColor(restored_image, cv2.COLOR_RGB2BGR))
     # If no solution exists
     else:
         print ("No solution exists")
