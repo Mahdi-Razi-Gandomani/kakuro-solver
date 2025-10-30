@@ -22,7 +22,6 @@ if __name__ == '__main__':
         restored_image = reverseProcess(page, arr_pres, img, cont)
         # Display the solved puzzle
         plt.imshow(restored_image, cmap='gray')
-        plt.title('Solved Puzzle')
         plt.axis('off')
         plt.show()
     # If no solution exists
