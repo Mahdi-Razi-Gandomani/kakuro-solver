@@ -80,12 +80,8 @@ project/
 
 ## Example
 
-**Original Puzzle:**
-
-![Original Puzzle](images/input.png)
-
-**Solved Puzzle:**
-
-![Solved Puzzle](images/solved_output.png)
+| Original Puzzle | Solved Puzzle |
+|-----------------|---------------|
+| ![Original Puzzle](images/input.png) | ![Solved Puzzle](images/solved_output.png) |
 
 ---
