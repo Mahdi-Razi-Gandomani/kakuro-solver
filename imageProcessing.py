@@ -17,7 +17,6 @@ def processImage(img, size):
     p_list = [cv2.arcLength(cont, True) for cont in contours]
     page_index = np.argmax(area_list)
     doc_contour = cv2.approxPolyDP(contours[page_index], epsilon=0.005 * p_list[page_index], closed=True)
-    cv2.drawContours(img, [doc_contour], -1, (0, 255, 0), 2)
 
     # Perspective transformation
     def sortPoints(points):
