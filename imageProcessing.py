@@ -1,7 +1,7 @@
 import numpy as np
 import cv2
 from matplotlib import pyplot as plt
-from model import MNIST
+from model import MNIST, MODEL_PATH 
 
 
 def processImage(img, size):
@@ -127,10 +127,16 @@ def getDigit(image, model):
 
         return l, r
 
-
+# Generate board from cells
 def getBoard(cells, size):
-    # Generate board from cells
-    model = MNIST()
+    
+    if os.path.exists(MODEL_PATH):
+        # Load pre-trained model
+        model = load_model(MODEL_PATH)
+        print("Loaded existing MNIST model from disk.")
+    else:
+        model = MNIST()
+
     board = [[(0, 0) for _ in range(size)] for _ in range(size)]
     for i in range(size):
         for j in range(size):
