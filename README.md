@@ -29,7 +29,7 @@ This project is a Kakuro puzzle solver that uses image processing, deep learning
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/kakuro-solver.git
+   git clone https://github.com/Mahdi-Razi-Gandomani/kakuro-solver.git
    cd kakuro-solver
 2. Run the solver:
    ```bash
