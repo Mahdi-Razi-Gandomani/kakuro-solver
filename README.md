@@ -82,10 +82,10 @@ project/
 
 **Original Puzzle:**
 
-![Original Puzzle](input.png)
+![Original Puzzle](images/input.png)
 
 **Solved Puzzle:**
 
-![Solved Puzzle](solved_output.png)
+![Solved Puzzle](images/solved_output.png)
 
 ---
