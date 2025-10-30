@@ -45,18 +45,6 @@ def processImage(img, size):
         for j in range(size):
             cell = puzzle_image[i * M:(i + 1) * M, j * N:(j + 1) * N]
             cells[i].append(cell)
-
-    # Display the original and processed
-    plt.figure(figsize=(15, 10))
-    plt.subplot(1, 2, 1)
-    plt.imshow(img)
-    plt.title('Original Image')
-    plt.axis('off')
-    plt.subplot(1, 2, 2)
-    plt.imshow(puzzle_image, cmap='gray')
-    plt.title('Processed Image')
-    plt.axis('off')
-    plt.show()
     
     return puzzle_image, cells, arr_pres, doc_contour
 
