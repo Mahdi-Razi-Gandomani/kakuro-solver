@@ -3,6 +3,8 @@ from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropou
 from tensorflow.keras.datasets import mnist
 from tensorflow.keras.utils import to_categorical
 
+MODEL_PATH = 'model/mnist_cnn_model.h5'
+
 def MNIST():
     # Load and preprocess MNIST dataset
     (x_train, y_train), (x_test, y_test) = mnist.load_data()
@@ -25,6 +27,7 @@ def MNIST():
     model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
     model.fit(x_train, y_train, validation_data=(x_test, y_test), epochs=20, batch_size=128)
     _, test_accuracy = model.evaluate(x_test, y_test)
+    model.save(MODEL_PATH)
     print(f'Test accuracy: {test_accuracy:.2f}')
     
     return model
