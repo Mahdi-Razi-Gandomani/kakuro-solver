@@ -51,21 +51,29 @@ def processImage(img, size):
 
 
 def reverseProcess(processed_image, arr_pres, original_img, doc_contour):
+    if not isinstance(original_img, np.ndarray):
+        original_img = np.array(original_img)
+    if original_img.shape[2] == 4:
+        original_img = original_img[:, :, :3]
+    if processed_image.shape[2] == 4:
+        processed_image = processed_image[:, :, :3]
+
     # Reverse perspective transformation
-    result = np.array(original_img)
+    h, w = original_img.shape[:2]
     arr_pres_inv = np.linalg.inv(arr_pres)
-    h, w = result.shape[:2]
     warped = cv2.warpPerspective(processed_image, arr_pres_inv, (w, h))
-    warped = cv2.cvtColor(warped, cv2.COLOR_RGB2BGR)
-    result = cv2.cvtColor(result, cv2.COLOR_RGB2BGR)
-    
+    warped_bgr = cv2.cvtColor(warped, cv2.COLOR_RGB2BGR)
+    result_bgr = cv2.cvtColor(original_img, cv2.COLOR_RGB2BGR)
+
     # Combine images
     mask = np.zeros((h, w, 3), dtype=np.uint8)
     cv2.fillPoly(mask, [doc_contour], (255, 255, 255))
     mask_bool = mask > 0
-    result = np.where(mask_bool, warped, result)
+    result_bgr = np.where(mask_bool, warped_bgr, result_bgr)
+    result_rgb = cv2.cvtColor(result_bgr, cv2.COLOR_BGR2RGB)
     
-    return result
+    return result_rgb
+
 
 
 def detect_diagonal_line(cell):
