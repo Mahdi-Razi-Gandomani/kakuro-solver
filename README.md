@@ -1,11 +1,11 @@
-# Kakuro Solver with Image Processing and MNIST Digit Recognition
+# Kakuro Solver
 
 This project provides a fully automated solution to Kakuro puzzles using computer vision, deep learning, and constraint satisfaction problem (CSP) techniques. Given an image of a Kakuro puzzle, the system detects the grid, extracts numbers, solves the puzzle, and overlays the solution back onto the original image.
 
 ---
 
 ## Demo
-| Original Puzzle | Solved Puzzle |
+| Input | Output |
 |-----------------|---------------|
 | ![Original Puzzle](images/input.png) | ![Solved Puzzle](images/solved_output.png) |
 
